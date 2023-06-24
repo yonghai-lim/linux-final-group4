@@ -1,0 +1,47 @@
+version: '3.5'
+
+services:
+
+  service-html-1:
+    image: yonghai/project1-denom:1.0.0
+    ports:
+      - 6001:80
+    deploy:
+      mode: global
+      # replicas: 1
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
+
+
+  service-node-1:
+    image: yonghai/project2-vue-material-kit-master:1.0.0
+    ports:
+      - 6002:4173
+    deploy:
+      mode: global
+      #replicas: 1
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
+
+
+  service-html-2:
+    image: yonghai/project3-dorang:1.0.0
+    ports:
+      - 6003:80
+    deploy:
+      mode: global
+      #replicas: 1
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
