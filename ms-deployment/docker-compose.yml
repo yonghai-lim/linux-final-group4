@@ -18,9 +18,9 @@ services:
 
 
   service-node-1:
-    image: yonghai/project2-vue-material-kit-master:1.0.0
+    image: yonghai/2rings:0.0.1
     ports:
-      - 6002:4173
+      - 6002:80
     deploy:
       mode: global
       #replicas: 1
